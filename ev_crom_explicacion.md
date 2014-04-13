@@ -14,6 +14,7 @@ Pasándolo a código, respectivamente, sería:
   vector< vector<unsigned char> > POB2(tamPob, vector<unsigned char>(numCro));
   vector< vector<unsigned char> > POB3(tamPob, vector<unsigned char>(numCro8));
   ```
+  Donde `tamPob` es el tamaño de la población y `numCro` es número de cromosomas por individuo.
 
 La explicación es sencilla:
 
