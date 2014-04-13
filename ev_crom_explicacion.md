@@ -9,10 +9,10 @@ El programa está escrito en c++ y usando las librerías estándar de la STD. Lo
 
 Pasándolo a código, respectivamente, sería:
 
-  ```cpp
-  - vector< vector<bool> > POB1(tamPob, vector<bool>(numCro));
-  - vector< vector<unsigned char> > POB2(tamPob, vector<unsigned char>(numCro));
-  - vector< vector<unsigned char> > POB3(tamPob, vector<unsigned char>(numCro8));
+  ```c++
+  vector< vector<bool> > POB1(tamPob, vector<bool>(numCro));
+  vector< vector<unsigned char> > POB2(tamPob, vector<unsigned char>(numCro));
+  vector< vector<unsigned char> > POB3(tamPob, vector<unsigned char>(numCro8));
   ```
 
 La explicación es sencilla:
