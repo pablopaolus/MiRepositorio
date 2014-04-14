@@ -28,3 +28,12 @@ Ejecución del programa
   ```bash
   ./ev_crom.cpp <Tamaño de la población> <Número de cromosomas>
   ```
+
+De esta forma, dando distintos valores a los argumentos del programa tenemos los siguientes tiempos de ejecución:
+
+ Tamaño de la población | Booleanos               | Unsigned char      | Unsigned char (bits)
+------------------------|------------------------ |--------------------|---------------------
+ 	100                   |		  0.000294 segundos   | 0.000442 segundos  | 0.000442 segundos
+ 	1000                  |  		0.00216 segundos    | 0.004022 segundos  | 0.00023 segundos
+ 	1000                  |  		0.022526 segundos   | 0.037748 segundos  | 0.39933 segundos
+
