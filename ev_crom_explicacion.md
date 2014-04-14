@@ -1,7 +1,7 @@
 Documentación de ev_crom.cpp
 ============================
 
-El programa está escrito en c++ y usando las librerías estándar de la STD. Lo que se ha hecho es comparar 3 estructuras distintas de datos. En todas ellas uso la clase `<vector>` para almacenar a la población y sus cromosomas:
+Lo podeis encontrar en [ev_crom.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/ev_crom.cpp). El programa está escrito en c++ y usando las librerías estándar de la STD. Lo que se ha hecho es comparar 3 estructuras distintas de datos. En todas ellas uso la clase `<vector>` para almacenar a la población y sus cromosomas:
 
   - Usando booleanos
   - Usando un unsigned char por cada cromosoma
@@ -37,4 +37,4 @@ De esta forma, dando distintos valores al número de cromosomas tenemos los sigu
  	     100      |        500      | 0.002000 s |  0.001143 s   |      0.000146 s
  	     100      |       1000      | 0.003959 s |  0.002283 s   |      0.000288 s
 
-Para 100 cromosomas, dado que son pocos cromosomas, el tiempo comparado con 500 cromosomas no es proporcional. Pero entre 500 y 1000 ya sí lo es. De todas formas lo que nos interesa es la eficiencia entre estructuras y no entre tamaños del problema. Observamos cómo el peor es el Bool dado que es igual que el Unsigned char pero en el bucle hay que preguntar si es 0 o 1 para transformarlo a false o true. En el último caso, siempre es casi 8 veces mejor que el Unsigned char a secas. Esto es debido a que sólo generamos la octava parte de números ya que un número se compone de 8 bits y por tanto 8 cromosomas de un tirón. Habría que ver, en posteriores ejercicios, si se puede conservar esta mejoría o si por el contrario al aplicar otro tipo de operaciones sobre los números empeoramos el tiempo
+Para 100 cromosomas, dado que son pocos, el tiempo comparado con 500 cromosomas no es proporcional. Pero entre 500 y 1000 ya sí lo es. De todas formas lo que nos interesa es la eficiencia entre estructuras y no entre tamaños del problema. Observamos cómo el peor es el Bool dado que es igual que el Unsigned char pero en el bucle hay que preguntar si es 0 o 1 para transformarlo a false o true. En el último caso, siempre es casi 8 veces mejor que el Unsigned char a secas. Esto es debido a que sólo generamos la octava parte de números ya que un número se compone de 8 bits y por tanto 8 cromosomas de un tirón. Habría que ver, en posteriores ejercicios, si se puede conservar esta mejoría o si por el contrario al aplicar otro tipo de operaciones sobre los números empeoramos el tiempo.
