@@ -29,11 +29,10 @@ Ejecución del programa
   ./ev_crom.cpp <Tamaño de la población> <Número de cromosomas>
   ```
 
-De esta forma, dando distintos valores a los argumentos del programa tenemos los siguientes tiempos de ejecución:
+De esta forma, dando distintos valores al número de cromosomas tenemos los siguientes tiempos de ejecución:
 
- Tamaño de la población | Booleanos               | Unsigned char      | Unsigned char (bits)
-------------------------|------------------------ |--------------------|---------------------
- 	100                   |		  0.000294 segundos   | 0.000442 segundos  | 0.000442 segundos
- 	1000                  |  		0.00216 segundos    | 0.004022 segundos  | 0.00023 segundos
- 	1000                  |  		0.022526 segundos   | 0.037748 segundos  | 0.39933 segundos
-
+ Tam. población | Núm. cromosomas |    Bool    | Unsigned char | Unsigned char (bits)
+----------------|-----------------|------------|---------------|---------------------
+ 	     100      |		     100      | 0.001232 s |  0.000696 s   |      0.000098 s
+ 	     100      |        500      | 0.002000 s |  0.001143 s   |      0.000146 s
+ 	     100      |       1000      | 0.003959 s |  0.002283 s   |      0.000288 s
