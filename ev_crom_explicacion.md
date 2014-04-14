@@ -20,7 +20,7 @@ La explicación es sencilla:
 
   - En el primero, cada cromosoma toma false o true. Un booleano ocupa 1 byte de memoria
   - En el segundo, cada cromosoma toma 0 o 1. Un unsigned char ocupa 1 byte de memoria
-  - En el tercero, cada unsigned char es un 1 byte = 8 bits, y cada bit será un cromosomas. De esta forma el vector se reduce a la octava parte.
+  - En el tercero, cada unsigned char es un 1 byte = 8 bits, y cada bit será un cromosoma. De esta forma el vector se reduce a la octava parte.
 
 Ejecución del programa
 ---------------------------
