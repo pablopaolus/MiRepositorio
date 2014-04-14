@@ -1,5 +1,5 @@
-ev_crom.cpp
-===========
+Documentación de ev_crom.cpp
+============================
 
 El programa está escrito en c++ y usando las librerías estándar de la STD. Lo que se ha hecho es comparar 3 estructuras distintas de datos. En todas ellas uso la clase `<vector>` para almacenar a la población y sus cromosomas:
 
@@ -14,7 +14,7 @@ Pasándolo a código, respectivamente, sería:
   vector< vector<unsigned char> > POB2(tamPob, vector<unsigned char>(numCro));
   vector< vector<unsigned char> > POB3(tamPob, vector<unsigned char>(numCro8));
   ```
-  Donde `tamPob` es el tamaño de la población y `numCro` es número de cromosomas por individuo.
+  Donde `tamPob` es el tamaño de la población y `numCro` es el número de cromosomas por individuo.
 
 La explicación es sencilla:
 
@@ -22,6 +22,9 @@ La explicación es sencilla:
   - En el segundo, cada cromosoma toma 0 o 1. Un unsigned char ocupa 1 byte de memoria
   - En el tercero, cada unsigned char es un 1 byte = 8 bits, y cada bit será un cromosomas. De esta forma el vector se reduce a la octava parte.
 
-Ejecuciones
+Ejecución del programa
 ---------------------------
 
+  ```bash
+  ./ev_crom.cpp <Tamaño de la población> <Número de cromosomas>
+  ```
