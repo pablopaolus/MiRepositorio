@@ -29,7 +29,7 @@ Ejecución del programa
   ./ev_crom.cpp <Tamaño de la población> <Número de cromosomas>
   ```
 
-De esta forma, dando distintos valores al número de cromosomas tenemos los siguientes tiempos de ejecución (se han cogido las mejores mediciones. En mi fichero `ev_crom_tiempos.txt` (https://github.com/rotty11/MiRepositorio/blob/master/ev_crom_tiempos.txt) teneis todas las medidas de ejecución):
+De esta forma, dando distintos valores al número de cromosomas tenemos los siguientes tiempos de ejecución (se han cogido las mejores mediciones. En mi fichero [ev_crom_tiempos.txt] (https://github.com/rotty11/MiRepositorio/blob/master/ev_crom_tiempos.txt) teneis todas las medidas de ejecución):
 
  Tam. población | Núm. cromosomas |    Bool    | Unsigned char | Unsigned char (bits)
 ----------------|-----------------|------------|---------------|---------------------
