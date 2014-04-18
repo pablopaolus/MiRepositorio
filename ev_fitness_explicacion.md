@@ -62,13 +62,12 @@ Ejecución del programa
   ./ev_fitness <Tamaño de la población> <Número de cromosomas>
   ```
 
-De esta forma, dando distintos valores al número de cromosomas tenemos los siguientes tiempos de ejecución (se han cogido las mejores mediciones. En mi fichero [ev_crom_tiempos.txt] (https://github.com/rotty11/MiRepositorio/blob/master/ev_crom_tiempos.txt) teneis todas las medidas de ejecución):
+De esta forma, dando distintos valores al número de cromosomas tenemos los siguientes tiempos de ejecución (se han cogido las mejores mediciones. En mi fichero [ev_fitness_tiempos.txt] (https://github.com/rotty11/MiRepositorio/blob/master/ev_fitness_tiempos.txt) teneis todas las medidas de ejecución):
 
- Tam. población | Núm. cromosomas |    Bool    | Unsigned char | Unsigned char (bits)
-----------------|-----------------|------------|---------------|---------------------
- 	     100      |		     100      | 0.001232 s |  0.000696 s   |      0.000098 s
- 	     100      |        500      | 0.002000 s |  0.001143 s   |      0.000146 s
- 	     100      |       1000      | 0.003959 s |  0.002283 s   |      0.000288 s
+ Tam. población | Núm. cromosomas | Unsigned char | Unsigned char (Brian Kernighan) | Unsigned char (Lookup Table)
+----------------|-----------------|---------------|---------------------------------|-----------------------------
+       100      |        128      |  0.000873 s   |            0.000181 s           |          0.000094 s
+       100      |        256      |  0.001734 s   |            0.000354 s           |          0.000174 s
+       100      |       1024      |  0.002298 s   |            0.000459 s           |          0.000219 s
 
-Para 100 cromosomas, dado que son pocos, el tiempo comparado con 500 cromosomas no es proporcional. Pero entre 500 y 1000 ya sí lo es. De todas formas lo que nos interesa es la eficiencia entre estructuras y no entre tamaños del problema. Observamos cómo el peor es el Bool dado que es igual que el Unsigned char pero en el bucle hay que preguntar si es 0 ó 1 para transformarlo a false o true. En el último caso, siempre es casi 8 veces mejor que el Unsigned char a secas. Esto es debido a que sólo generamos la octava parte de números ya que un número se compone de 8 bits y por tanto 8 cromosomas de un tirón. Habría que ver, en posteriores ejercicios, si se puede conservar esta mejoría o si por el contrario al aplicar otro tipo de operaciones sobre los números empeoramos el tiempo.
-Por último quiero agradecer a Paloma por su ayuda indirecta dado que me he basado en el raw de su fichero de explicación para poder formatear este texto (tabla, código, encabezado, enlaces) dado que yo no sabía nada del tema.
+Observamos en la tabla que aproximadamente se respetan los tiempos de ejecución con las fórmulas mencionadas anteriormente. El método de Brian Kernighan reduce unas 4,7 veces el tiempo anterior si tenemos en cuenta que sólo rellena la octava parte de cromosomas pero usa más tiempo al tener que operar a nivel de bits varias veces por cada unsigned char. En última instancia, en el método de la Lookup Table, hay que mencionar que para tamaños pequeños de población o número de cromosomas el tiempo empeoraría debido a que hay que crear previamente la tabla y no compensa, pero en estos casos es lo suficientemente grande como para poder sacar ventaja. Como conclusión, el último método es el mejor en estos casos y lo validamos como el más eficiente.
