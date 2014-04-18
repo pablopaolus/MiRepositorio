@@ -7,11 +7,18 @@ Lo podeis encontrar en [ev_fitness.cpp] (https://github.com/rotty11/MiRepositori
   - Usando un unsigned char por cada 8 cromosomas (Obteniendo los unos sumando bit a bit)
   - Usando un unsigned char por cada 8 cromosomas (Obteniendo los unos consultando la lookup table)
 
-La explicación es sencilla:
+#####Obtención de unos mediante unsigned char por cada cromosoma:
 
-  - En el primero, cada cromosoma toma false o true. Un booleano ocupa 1 byte de memoria
-  - En el segundo, cada cromosoma toma 0 o 1. Un unsigned char ocupa 1 byte de memoria
-  - En el tercero, cada unsigned char es un 1 byte = 8 bits, y cada bit será un cromosoma. De esta forma el vector se reduce a la octava parte.
+```cpp
+// Voy comprobando si esta a 1 y lo sumo al contador
+	// Eficiencia: O(n)
+	// Ejecuciones: 2*n
+	int cont = 0;
+	for(itPOB1 = POB1.begin(); itPOB1 != POB1.end(); ++itPOB1)
+		for(itGEN1 = (*itPOB1).begin(); itGEN1 != (*itPOB1).end(); ++itGEN1)
+			if(*itGEN1 == 1)
+				++cont;
+```
 
 Ejecución del programa
 ---------------------------
