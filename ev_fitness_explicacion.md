@@ -20,6 +20,23 @@ for(itPOB1 = POB1.begin(); itPOB1 != POB1.end(); ++itPOB1)
 ```
 De esta forma, consultamos si el cromosoma está a 1 y lo sumamos al contador. Ello tiene eficiencia O(n) y en el peor de los casos 2*n ejecuciones.
 
+#####Obtención de unos mediante unsigned char por cada cromosoma:
+```cpp
+// Voy comprobando cada bit de cada unsigned char si está a 1 y lo sumo al contador (Brian Kernighan)
+// Eficiencia: O(n*log2(num)) -->>> OJO!! n/8 operaciones básicas + log2(num)
+// Ejecuciones: (n/8) + (n/8)*(log2(num)*3) -->>> de media n/2
+cont = 0;
+for(itPOB2 = POB2.begin(); itPOB2 != POB2.end(); ++itPOB2)
+	for(itGEN2 = (*itPOB2).begin(); itGEN2 != (*itPOB2).end(); ++itGEN2) {
+		unsigned char num = *itGEN2;
+		while (num) {
+			num &= (num-1);
+			++cont;
+		}
+	}
+```
+Aquí, lo que hacemos es operar a nivel de bits realizando AND lógica entre el número en cuestión y su anterior para obtener el bit en cuestión, sumándolo al contador y desplazando a la derecha todos los bits restantes. Todo ello tiene eficiencia O(n*log2(num)) siendo `num` el valor del unsigned char y con un número de ejecuciones de (n/8) + (n/8)*(log2(num)*3) que a efectos prácticos de media se reduce a n/2 aproximadamente. Este método es conocido como el método de Brian Kernighan.
+
 Ejecución del programa
 ---------------------------
 
