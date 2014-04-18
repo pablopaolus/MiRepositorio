@@ -1,0 +1,148 @@
+100 128
+
+Unsigned char: 0.000873 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000183 Segundos
+Unsigned char (bits) Lookup Table: 0.000094 Segundos
+
+
+Unsigned char: 0.000875 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000181 Segundos
+Unsigned char (bits) Lookup Table: 0.000094 Segundos
+
+
+Unsigned char: 0.000890 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000181 Segundos
+Unsigned char (bits) Lookup Table: 0.000094 Segundos
+
+
+Unsigned char: 0.000873 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000181 Segundos
+Unsigned char (bits) Lookup Table: 0.000094 Segundos
+
+
+Unsigned char: 0.000873 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000183 Segundos
+Unsigned char (bits) Lookup Table: 0.000094 Segundos
+
+
+Unsigned char: 0.000873 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000181 Segundos
+Unsigned char (bits) Lookup Table: 0.000094 Segundos
+
+
+Unsigned char: 0.000874 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000181 Segundos
+Unsigned char (bits) Lookup Table: 0.000094 Segundos
+
+
+Unsigned char: 0.000873 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000191 Segundos
+Unsigned char (bits) Lookup Table: 0.000094 Segundos
+
+
+Unsigned char: 0.000886 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000183 Segundos
+Unsigned char (bits) Lookup Table: 0.000119 Segundos
+
+100 256
+
+Unsigned char: 0.001735 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000366 Segundos
+Unsigned char (bits) Lookup Table: 0.000174 Segundos
+
+
+Unsigned char: 0.001735 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000356 Segundos
+Unsigned char (bits) Lookup Table: 0.000174 Segundos
+
+
+Unsigned char: 0.001750 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000356 Segundos
+Unsigned char (bits) Lookup Table: 0.000175 Segundos
+
+
+Unsigned char: 0.001736 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000377 Segundos
+Unsigned char (bits) Lookup Table: 0.000175 Segundos
+
+
+Unsigned char: 0.001735 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000356 Segundos
+Unsigned char (bits) Lookup Table: 0.000175 Segundos
+
+
+Unsigned char: 0.001759 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000356 Segundos
+Unsigned char (bits) Lookup Table: 0.000174 Segundos
+
+
+Unsigned char: 0.001734 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000364 Segundos
+Unsigned char (bits) Lookup Table: 0.000174 Segundos
+
+
+Unsigned char: 0.001736 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000356 Segundos
+Unsigned char (bits) Lookup Table: 0.000174 Segundos
+
+
+Unsigned char: 0.001750 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000354 Segundos
+Unsigned char (bits) Lookup Table: 0.000174 Segundos
+
+
+Unsigned char: 0.001789 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000357 Segundos
+Unsigned char (bits) Lookup Table: 0.000174 Segundos
+
+100 1024
+
+Unsigned char: 0.006922 Segundos
+Unsigned char (bits) Brian Kernighan: 0.001378 Segundos
+Unsigned char (bits) Lookup Table: 0.000659 Segundos
+
+
+Unsigned char: 0.002314 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000459 Segundos
+Unsigned char (bits) Lookup Table: 0.000220 Segundos
+
+
+Unsigned char: 0.002323 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000459 Segundos
+Unsigned char (bits) Lookup Table: 0.000220 Segundos
+
+
+Unsigned char: 0.002298 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000473 Segundos
+Unsigned char (bits) Lookup Table: 0.000219 Segundos
+
+
+Unsigned char: 0.002301 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000459 Segundos
+Unsigned char (bits) Lookup Table: 0.000220 Segundos
+
+
+Unsigned char: 0.002312 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000459 Segundos
+Unsigned char (bits) Lookup Table: 0.000219 Segundos
+
+
+Unsigned char: 0.002312 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000469 Segundos
+Unsigned char (bits) Lookup Table: 0.000220 Segundos
+
+
+Unsigned char: 0.002300 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000477 Segundos
+Unsigned char (bits) Lookup Table: 0.000220 Segundos
+
+
+Unsigned char: 0.002300 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000459 Segundos
+Unsigned char (bits) Lookup Table: 0.000219 Segundos
+
+
+Unsigned char: 0.002320 Segundos
+Unsigned char (bits) Brian Kernighan: 0.000470 Segundos
+Unsigned char (bits) Lookup Table: 0.000219 Segundos
+
