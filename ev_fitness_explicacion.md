@@ -1,20 +1,11 @@
-Documentación de ev_crom.cpp
-============================
+Documentación de ev_fitness.cpp
+===============================
 
-Lo podeis encontrar en [ev_crom.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/ev_crom.cpp). El programa está escrito en c++ y usando las librerías estándar de la STD. Lo que se ha hecho es comparar 3 estructuras distintas de datos. En todas ellas uso la clase `<vector>` para almacenar a la población y sus cromosomas:
+Lo podeis encontrar en [ev_fitness.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/ev_fitness.cpp). Lo que se ha hecho es desechar la estructura de booleanos del primer ejercicio y sustituirlo por una variante en la estructura de unsigned char a la hora de acceder a los cromosomas para el reconteo de unos:
 
-  - Usando booleanos
   - Usando un unsigned char por cada cromosoma
-  - Usando un unsigned char por cada 8 cromosomas
-
-Pasándolo a código, respectivamente, sería:
-
-  ```c++
-  vector< vector<bool> > POB1(tamPob, vector<bool>(numCro));
-  vector< vector<unsigned char> > POB2(tamPob, vector<unsigned char>(numCro));
-  vector< vector<unsigned char> > POB3(tamPob, vector<unsigned char>(numCro8));
-  ```
-  Donde `tamPob` es el tamaño de la población y `numCro` es el número de cromosomas por individuo.
+  - Usando un unsigned char por cada 8 cromosomas (Obteniendo los unos sumando bit a bit)
+  - Usando un unsigned char por cada 8 cromosomas (Obteniendo los unos consultando la lookup table)
 
 La explicación es sencilla:
 
