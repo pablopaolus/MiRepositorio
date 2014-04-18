@@ -37,7 +37,7 @@ for(itPOB2 = POB2.begin(); itPOB2 != POB2.end(); ++itPOB2)
 ```
 Aquí, lo que hacemos es operar a nivel de bits realizando AND lógica entre el número en cuestión y su anterior para obtener el bit menos significativo, sumándolo al contador y desplazando a la derecha todos los bits restantes. Todo ello tiene eficiencia `O(n*log2(num))` siendo `num` el valor del unsigned char y con un número de ejecuciones de `(n/8) + (n/8)*(log2(num)*3)`, que a efectos prácticos de media se reduce a `n/2` aproximadamente.
 
-#####Obtención de unos mediante el método de la lookup table:
+#####Obtención de unos mediante el método de la Lookup Table:
 ```cpp
 // Creacion de la tabla precomputada
 unsigned char BitsSetTable[256];
@@ -53,7 +53,7 @@ for(itPOB2 = POB2.begin(); itPOB2 != POB2.end(); ++itPOB2)
 	for(itGEN2 = (*itPOB2).begin(); itGEN2 != (*itPOB2).end(); ++itGEN2)
 		cont += BitsSetTable[*itGEN2];
 ```
-Aquí, lo que hacemos es operar a nivel de bits realizando AND lógica entre el número en cuestión y su anterior para obtener el bit menos significativo, sumándolo al contador y desplazando a la derecha todos los bits restantes. Todo ello tiene eficiencia `O(n*log2(num))` siendo `num` el valor del unsigned char y con un número de ejecuciones de `(n/8) + (n/8)*(log2(num)*3)`, que a efectos prácticos de media se reduce a `n/2` aproximadamente.
+Para usar este método, lo primero que tenemos que crear es una tabla inicializada con la acumulación de los unos que tiene cada unsigned char (0-255). De esta forma, cada vez que consultemos un número lo único que tenemos que hacer es buscar en la tabla cuántos unos tiene. De esta forma, por un lado ganamos tiempo al tener n/8 unsigned char respecto al primer método y también ganamos tiempo porque para cada unsigned char basta con un acceso en obtener su número de unos (en vez de ir bit a bit como en el segundo método). Todo ello tiene una eficiencia `O(n)` y con un número de ejecuciones de `2*(n/8) = n/4`.
 
 Ejecución del programa
 ----------------------
