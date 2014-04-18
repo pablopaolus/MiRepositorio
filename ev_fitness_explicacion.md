@@ -35,13 +35,13 @@ for(itPOB2 = POB2.begin(); itPOB2 != POB2.end(); ++itPOB2)
 		}
 	}
 ```
-Aquí, lo que hacemos es operar a nivel de bits realizando AND lógica entre el número en cuestión y su anterior para obtener el bit en cuestión, sumándolo al contador y desplazando a la derecha todos los bits restantes. Todo ello tiene eficiencia `O(n*log2(num))` siendo `num` el valor del unsigned char y con un número de ejecuciones de `(n/8) + (n/8)*(log2(num)*3)` que a efectos prácticos de media se reduce a `n/2` aproximadamente.
+Aquí, lo que hacemos es operar a nivel de bits realizando AND lógica entre el número en cuestión y su anterior para obtener el bit menos significativo, sumándolo al contador y desplazando a la derecha todos los bits restantes. Todo ello tiene eficiencia `O(n*log2(num))` siendo `num` el valor del unsigned char y con un número de ejecuciones de `(n/8) + (n/8)*(log2(num)*3)`, que a efectos prácticos de media se reduce a `n/2` aproximadamente.
 
 Ejecución del programa
 ----------------------
 
   ```bash
-  ./ev_crom <Tamaño de la población> <Número de cromosomas>
+  ./ev_fitness <Tamaño de la población> <Número de cromosomas>
   ```
 
 De esta forma, dando distintos valores al número de cromosomas tenemos los siguientes tiempos de ejecución (se han cogido las mejores mediciones. En mi fichero [ev_crom_tiempos.txt] (https://github.com/rotty11/MiRepositorio/blob/master/ev_crom_tiempos.txt) teneis todas las medidas de ejecución):
