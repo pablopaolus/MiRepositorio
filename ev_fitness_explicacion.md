@@ -37,6 +37,24 @@ for(itPOB2 = POB2.begin(); itPOB2 != POB2.end(); ++itPOB2)
 ```
 Aquí, lo que hacemos es operar a nivel de bits realizando AND lógica entre el número en cuestión y su anterior para obtener el bit menos significativo, sumándolo al contador y desplazando a la derecha todos los bits restantes. Todo ello tiene eficiencia `O(n*log2(num))` siendo `num` el valor del unsigned char y con un número de ejecuciones de `(n/8) + (n/8)*(log2(num)*3)`, que a efectos prácticos de media se reduce a `n/2` aproximadamente.
 
+#####Obtención de unos mediante el método de la lookup table:
+```cpp
+// Creacion de la tabla precomputada
+unsigned char BitsSetTable[256];
+BitsSetTable[0] = 0;
+for(int i = 0; i < 256; ++i)
+	BitsSetTable[i] = (i & 1) + BitsSetTable[i / 2];
+
+// Voy comprobando en la tabla cuantos unos tiene cada unsigned char y lo sumo al contador (Lookup Table)
+// Eficiencia: O(n)
+// Ejecuciones: 2*(n/8) = n/4
+cont = 0;
+for(itPOB2 = POB2.begin(); itPOB2 != POB2.end(); ++itPOB2)		
+	for(itGEN2 = (*itPOB2).begin(); itGEN2 != (*itPOB2).end(); ++itGEN2)
+		cont += BitsSetTable[*itGEN2];
+```
+Aquí, lo que hacemos es operar a nivel de bits realizando AND lógica entre el número en cuestión y su anterior para obtener el bit menos significativo, sumándolo al contador y desplazando a la derecha todos los bits restantes. Todo ello tiene eficiencia `O(n*log2(num))` siendo `num` el valor del unsigned char y con un número de ejecuciones de `(n/8) + (n/8)*(log2(num)*3)`, que a efectos prácticos de media se reduce a `n/2` aproximadamente.
+
 Ejecución del programa
 ----------------------
 
