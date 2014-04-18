@@ -18,6 +18,7 @@ for(itPOB1 = POB1.begin(); itPOB1 != POB1.end(); ++itPOB1)
 		if(*itGEN1 == 1)
 			++cont;
 ```
+De esta forma, consultamos si el cromosoma está a 1 y lo sumamos al contador. Ello tiene eficiencia O(n) y en el peor de los casos 2*n ejecuciones.
 
 Ejecución del programa
 ---------------------------
