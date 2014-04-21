@@ -1,22 +1,17 @@
 Documentación de op_mut&cross.cpp
 ===============================
 
-Lo podeis encontrar en [ev_fitness.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/ev_fitness.cpp). Lo que se ha hecho es desechar la estructura de booleanos del primer ejercicio y sustituirlo por una variante en la estructura de unsigned char a la hora de acceder a los cromosomas para el reconteo de unos:
+Lo podeis encontrar en [op_mut&cross.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/op_mut&cross.cpp). En este programa sólo se muestra la inicialización de los cromosomas a 1 ó 0 aleatorios y posteriormente se hará una mutación a uno o varios cromosomas y posteriormente se realiza un crossover entre dos individuos cualesquiera usando la técnica del crossover en dos puntos. La estructura de datos usada será la mejor que se ha obtenido hasta ahora. Esto es:
 
-  - Usando un unsigned char por cada cromosoma
-  - Usando un unsigned char por cada 8 cromosomas (Obteniendo los unos sumando bit a bit)
-  - Usando un unsigned char por cada 8 cromosomas (Obteniendo los unos consultando la lookup table)
+  - Usando un unsigned char por cada 8 cromosomas
 
-#####Obtención de unos mediante unsigned char por cada cromosoma:
+#####Mutación:
 ```cpp
-// Voy comprobando si esta a 1 y lo sumo al contador
-// Eficiencia: O(n)
-// Ejecuciones: 2*n
-int cont = 0;
-for(itPOB1 = POB1.begin(); itPOB1 != POB1.end(); ++itPOB1)
-	for(itGEN1 = (*itPOB1).begin(); itGEN1 != (*itPOB1).end(); ++itGEN1)
-		if(*itGEN1 == 1)
-			++cont;
+// Realizo mutacion en cada individuo de la poblacion de 1 o varios bits
+for(itPOB = POB.begin(); itPOB != POB.end(); ++itPOB) {
+	int cromosoma = rand() % numCro8;
+	(*itPOB)[cromosoma] = rand() % 256;
+}
 ```
 De esta forma, consultamos si el cromosoma está a 1 y lo sumamos al contador. Ello tiene eficiencia `O(n)` y en el peor de los casos `2*n` ejecuciones.
 
