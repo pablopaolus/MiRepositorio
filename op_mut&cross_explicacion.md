@@ -1,4 +1,4 @@
-Documentación de ev_fitness.cpp
+Documentación de op_mut&cross.cpp
 ===============================
 
 Lo podeis encontrar en [ev_fitness.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/ev_fitness.cpp). Lo que se ha hecho es desechar la estructura de booleanos del primer ejercicio y sustituirlo por una variante en la estructura de unsigned char a la hora de acceder a los cromosomas para el reconteo de unos:
