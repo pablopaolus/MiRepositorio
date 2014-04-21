@@ -13,9 +13,14 @@ for(itPOB = POB.begin(); itPOB != POB.end(); ++itPOB) {
 	(*itPOB)[cromosoma] = rand() % 256;
 }
 ```
-De esta forma, consultamos si el cromosoma está a 1 y lo sumamos al contador. Ello tiene eficiencia `O(n)` y en el peor de los casos `2*n` ejecuciones.
+Lo que hacemos es mutar un unsigned char completo, aleatoriamente, lo que daría lugar a mutar en el mayor de los casos 8 bits, y por tanto 8 cromosomas. Así, en la representación binaria del podría conservarse el estado de algunos bits o sólo cambiaría uno, según el número que le toque. Ejemplo:
 
-#####Obtención de unos mediante operaciones a nivel de bits con el método de Brian Kernighan:
+	Unsigned char anterior(Dec / Bin): 26 / 00011010
+	Unsigned char generado(Dec / Bin): 51 / 00110011
+	
+Como se ve, cambian 3 bits. Por tanto, se han mutado 3 cromosomas.
+
+#####Crossover en dos puntos:
 ```cpp
 // Voy comprobando cada bit de cada unsigned char si está a 1 y lo sumo al contador (Brian Kernighan)
 // Eficiencia: O(n*log2(num)) -->>> OJO!! n/8 operaciones básicas + log2(num)
