@@ -13,7 +13,7 @@ for(itPOB = POB.begin(); itPOB != POB.end(); ++itPOB) {
 	(*itPOB)[cromosoma] = rand() % 256;
 }
 ```
-Lo que hacemos es mutar un unsigned char completo (0-255), aleatoriamente, lo que daría lugar a mutar en el mayor de los casos 8 bits, y por tanto 8 cromosomas. Así, en la representación binaria del unsigned char podría conservarse el estado de algunos bits o sólo cambiaría uno, según el número que le toque. Ejemplo:
+Lo que hacemos es mutar un unsigned char completo (0-255), aleatoriamente, lo que daría lugar a mutar en el mayor de los casos 8 bits, y por tanto 8 cromosomas. Así, en la representación binaria del unsigned char podría cambiar el estado de algunos bits, de uno sólo o de ninguno, según el número que le toque. Ejemplo:
 
 	Unsigned char anterior(Dec / Bin): 26 / 00011010
 	Unsigned char generado(Dec / Bin): 51 / 00110011
@@ -22,20 +22,25 @@ Como se ve, cambian 3 bits. Por tanto, se han mutado 3 cromosomas.
 
 #####Crossover en dos puntos:
 ```cpp
-// Voy comprobando cada bit de cada unsigned char si está a 1 y lo sumo al contador (Brian Kernighan)
-// Eficiencia: O(n*log2(num)) -->>> OJO!! n/8 operaciones básicas + log2(num)
-// Ejecuciones: (n/8) + (n/8)*(log2(num)*3) -->>> de media n/2
-cont = 0;
-for(itPOB2 = POB2.begin(); itPOB2 != POB2.end(); ++itPOB2)
-	for(itGEN2 = (*itPOB2).begin(); itGEN2 != (*itPOB2).end(); ++itGEN2) {
-		unsigned char num = *itGEN2;
-		while (num) {
-			num &= (num-1);
-			++cont;
-		}
-	}
+// Realizo crossover entre dos individuos cogidos al azar (No me fijo en fitness ni nada)
+// Utilizo el crossover entre dos puntos tambien elegidos al azar
+// El resultado (dos hijos) lo almaceno en un nuevo vector de tamaño 2
+int ind1 = rand() % tamPob;
+int ind2 = rand() % tamPob;
+int p1 = rand() % numCro8;
+int p2 = rand() % numCro8;
+int menor = (p1<p2) ? p1 : p2;
+int mayor = (p1>p2) ? p1 : p2;
+vector< vector<unsigned char> > HIJOS;
+HIJOS.push_back(POB[ind1]);
+HIJOS.push_back(POB[ind2]);
+for(int i = menor; i <= mayor; ++i) {
+	HIJOS[0][i] = POB[ind2][i];
+	HIJOS[1][i] = POB[ind1][i];
+}
 ```
-Aquí, lo que hacemos es operar a nivel de bits realizando AND lógica entre el número en cuestión y su anterior para obtener el bit menos significativo, sumándolo al contador y desplazando a la derecha todos los bits restantes. Todo ello tiene eficiencia `O(n*log2(num))` siendo `num` el valor del unsigned char y con un número de ejecuciones de `(n/8) + (n/8)*(log2(num)*3)`, que a efectos prácticos de media se reduce a `n/2` aproximadamente.
+Para empezar, en `ind1` e `ind2` se almacena la posición de los individuos que van a reproducirse elegidos al azar. En `p1` y `p2` se almacena los puntos inicial y final del trozo de cadena a usar en el crossover (rango de cromosomas) también elegidos al azar. Como son aleatorios, compruebo quién es mayor y quién es menor y lo guardo en `menor` y `mayor`. Acto seguido copio en el vector HIJOS (de tamaño 2) los padres. Por último, recorro el trozo de cadena a copiar y la voy asignando a su correspondiente hijo: La cadena del padre1 se copia en su lugar correspondiente en hijo2 y la cadena del padre2 se copia en el hijo1.
+De esta forma hemos creado dos nuevos hijos a partir de los padres. Para aclarar el proceso, aquí un ejemplo:
 
 #####Obtención de unos mediante el método de la Lookup Table:
 ```cpp
