@@ -13,7 +13,7 @@ for(itPOB = POB.begin(); itPOB != POB.end(); ++itPOB) {
 	(*itPOB)[cromosoma] = rand() % 256;
 }
 ```
-Lo que hacemos es mutar un unsigned char completo, aleatoriamente, lo que daría lugar a mutar en el mayor de los casos 8 bits, y por tanto 8 cromosomas. Así, en la representación binaria del podría conservarse el estado de algunos bits o sólo cambiaría uno, según el número que le toque. Ejemplo:
+Lo que hacemos es mutar un unsigned char completo (0-255), aleatoriamente, lo que daría lugar a mutar en el mayor de los casos 8 bits, y por tanto 8 cromosomas. Así, en la representación binaria del unsigned char podría conservarse el estado de algunos bits o sólo cambiaría uno, según el número que le toque. Ejemplo:
 
 	Unsigned char anterior(Dec / Bin): 26 / 00011010
 	Unsigned char generado(Dec / Bin): 51 / 00110011
