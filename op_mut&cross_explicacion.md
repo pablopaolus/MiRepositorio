@@ -43,7 +43,7 @@ Para empezar, en `ind1` e `ind2` se almacena la posición de los individuos que 
 De esta forma hemos creado dos nuevos hijos a partir de los padres. Para aclarar el proceso, aquí un ejemplo, donde los padres tienen cadenas de tamaño 24 y el rango de cromosomas a copiar es del 8 al 15:
 
 Padres `pad0` y `pad1` asd:
-asdflk
+
 	- 10100100`00110010`00010111        01111100`10101001`10010101
 
 Se copian los padres en `HIJOS[0]` e `HIJOS[1]`:
