@@ -42,9 +42,9 @@ for(int i = menor; i <= mayor; ++i) {
 Para empezar, en `ind1` e `ind2` se almacena la posición de los individuos que van a reproducirse elegidos al azar. En `p1` y `p2` se almacena los puntos inicial y final del trozo de cadena a usar en el crossover (rango de cromosomas) también elegidos al azar. Como son aleatorios, compruebo quién es mayor y quién es menor y lo guardo en `menor` y `mayor`. Acto seguido copio en el vector `HIJOS` (de tamaño 2) los padres. Por último, recorro el trozo de cadena a copiar y la voy asignando a su correspondiente hijo: La cadena del padre1 se copia en su lugar correspondiente en hijo2 y la cadena del padre2 se copia en el hijo1.
 De esta forma hemos creado dos nuevos hijos a partir de los padres. Para aclarar el proceso, aquí un ejemplo, donde los padres tienen cadenas de tamaño 24 y el rango de cromosomas a copiar es del 8 al 15:
 
-Padres `pad0` y `pad1` asd:
+Padres `pad0` y `pad1`:
 
-	- 10100100`00110010`00010111        01111100`10101001`10010101
+	- 10100100 `00110010` 00010111        01111100 `10101001` 10010101
 
 Se copian los padres en `HIJOS[0]` e `HIJOS[1]`:
 	- 10100100`00110010`00010111        01111100`10101001`10010101
