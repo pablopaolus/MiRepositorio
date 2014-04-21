@@ -44,13 +44,15 @@ De esta forma hemos creado dos nuevos hijos a partir de los padres. Para aclarar
 
 Padres `pad0` y `pad1`:
 
-	10100100 `00110010` 00010111        01111100 `10101001` 10010101
+	10100100`00110010`00010111        01111100`10101001`10010101
 
 Se copian los padres en `HIJOS[0]` e `HIJOS[1]`:
-	- 10100100`00110010`00010111        01111100`10101001`10010101
+
+	10100100`00110010`00010111        01111100`10101001`10010101
 	
 Se cruzan los cromosomas marcados quedando `HIJOS[0]` e `HIJOS[1]` de la siguiente forma:
-	- 10100100`10101001`00010111        01111100`00110010`10010101
+
+	10100100`10101001`00010111        01111100`00110010`10010101
 
 Ejecución del programa
 ----------------------
