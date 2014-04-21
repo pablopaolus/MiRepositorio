@@ -1,7 +1,7 @@
 Documentación de op_mut&cross.cpp
 ===============================
 
-Lo podeis encontrar en [op_mut&cross.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/op_mut&cross.cpp). En este programa sólo se muestra la inicialización de los cromosomas a 1 ó 0 aleatorios y posteriormente se hará una mutación a uno o varios cromosomas y posteriormente se realiza un crossover entre dos individuos cualesquiera usando la técnica del crossover en dos puntos. La estructura de datos usada será la mejor que se ha obtenido hasta ahora. Esto es:
+Lo podeis encontrar en [op_mut&cross.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/op_mut&cross.cpp). En este programa sólo se muestra la inicialización de los cromosomas a 1 ó 0 aleatoriamente y posteriormente se hará una mutación a uno o varios cromosomas. Después se realiza un crossover entre dos individuos cualesquiera usando la técnica del crossover en dos puntos. La estructura de datos usada será la mejor que se ha obtenido hasta ahora. Esto es:
 
   - Usando un unsigned char por cada 8 cromosomas
 
