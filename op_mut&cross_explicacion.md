@@ -60,3 +60,4 @@ Ejecución del programa
   ```bash
   ./op_mut\&cross <Tamaño de la población> <Número de cromosomas>
   ```
+Viendo la ventaja en tiempos de ejecución que esta implementación me ha proporcionado hasta ahora, y la facilidad para realizar mutaciones y crossover hace que me parezca una implementación adecuada para un algoritmo genético.
