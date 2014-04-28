@@ -1,0 +1,94 @@
+100 128
+Algoritmo genético: 0.000316 Segundos
+
+Algoritmo genético: 0.000375 Segundos
+
+Algoritmo genético: 0.000313 Segundos
+
+Algoritmo genético: 0.000312 Segundos
+
+Algoritmo genético: 0.000135 Segundos
+
+Algoritmo genético: 0.000133 Segundos
+
+Algoritmo genético: 0.000135 Segundos
+
+Algoritmo genético: 0.000135 Segundos
+
+Algoritmo genético: 0.000134 Segundos
+
+100 256
+Algoritmo genético: 0.000199 Segundos
+
+Algoritmo genético: 0.000202 Segundos
+
+Algoritmo genético: 0.000233 Segundos
+
+Algoritmo genético: 0.000233 Segundos
+
+Algoritmo genético: 0.000233 Segundos
+
+Algoritmo genético: 0.000234 Segundos
+
+Algoritmo genético: 0.000235 Segundos
+
+Algoritmo genético: 0.000233 Segundos
+
+Algoritmo genético: 0.000233 Segundos
+
+100 1024
+Algoritmo genético: 0.000728 Segundos
+
+Algoritmo genético: 0.000731 Segundos
+
+Algoritmo genético: 0.000748 Segundos
+
+Algoritmo genético: 0.000731 Segundos
+
+Algoritmo genético: 0.000659 Segundos
+
+Algoritmo genético: 0.000658 Segundos
+
+Algoritmo genético: 0.000661 Segundos
+
+Algoritmo genético: 0.000659 Segundos
+
+Algoritmo genético: 0.000659 Segundos
+
+100 65536
+Algoritmo genético: 0.032200 Segundos
+
+Algoritmo genético: 0.029427 Segundos
+
+Algoritmo genético: 0.029773 Segundos
+
+Algoritmo genético: 0.029784 Segundos
+
+Algoritmo genético: 0.028470 Segundos
+
+Algoritmo genético: 0.029803 Segundos
+
+Algoritmo genético: 0.029824 Segundos
+
+Algoritmo genético: 0.029773 Segundos
+
+Algoritmo genético: 0.029860 Segundos
+
+100 1048576
+Algoritmo genético: 0.452391 Segundos
+
+Algoritmo genético: 0.454870 Segundos
+
+Algoritmo genético: 0.454040 Segundos
+
+Algoritmo genético: 0.456713 Segundos
+
+Algoritmo genético: 0.455327 Segundos
+
+Algoritmo genético: 0.455604 Segundos
+
+Algoritmo genético: 0.447809 Segundos
+
+Algoritmo genético: 0.447521 Segundos
+
+Algoritmo genético: 0.446043 Segundos
