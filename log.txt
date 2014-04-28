@@ -1,0 +1,49 @@
+Individuos ordenados por fitness:
+Num 1, fitness: 30
+Num 4, fitness: 27
+Num 2, fitness: 26
+Num 6, fitness: 25
+Num 0, fitness: 24
+Num 5, fitness: 22
+Num 3, fitness: 20
+Total fitness: 174 / 336
+
+Copias de 1: 1
+Copias de 4: 1
+Copias de 2: 1
+Copias de 6: 1
+Copias de 0: 0
+Copias de 5: 0
+Copias de 3: 0
+Indices de individuos en la ruleta: 1 4 2 6 1 4 2 
+
+Realizo 3 cruces:
+
+Cruce 0: entre padres 4 y 1 con cruce entre los puntos 0 y 1
+PADRE 4: 245 121 108 84 215 70 
+PADRE 1: 195 203 209 127 242 158 
+HIJO 0: 195 203 108 84 215 70 
+HIJO 1: 245 121 209 127 242 158 
+
+
+Cruce 1: entre padres 2 y 4 con cruce entre los puntos 4 y 5
+PADRE 2: 20 250 182 184 188 156 
+PADRE 4: 245 121 108 84 215 70 
+HIJO 2: 20 250 182 184 215 70 
+HIJO 3: 245 121 108 84 188 156 
+
+
+Cruce 2: entre padres 1 y 4 con cruce entre los puntos 2 y 4
+PADRE 1: 195 203 209 127 242 158 
+PADRE 4: 245 121 108 84 215 70 
+HIJO 4: 195 203 108 84 215 158 
+HIJO 5: 245 121 209 127 242 70 
+
+Nueva poblacion:
+195 203 108 84 215 67 
+245 233 209 127 242 158 
+20 115 182 184 215 70 
+245 121 14 84 188 156 
+195 203 108 134 215 158 
+245 121 209 92 242 70 
+195 203 209 127 242 158 
