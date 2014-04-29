@@ -63,21 +63,51 @@ if(generados < tamPob)
 		RULETA[i] = TORNEO[aux].first;
 ```
 
-#####Obtención de unos mediante el método de la Lookup Table:
+#####Crossover:
+Lo que hacemos en el crossover es coger aleatoriamente dos números entre 0 y `tamPob` que serán los índices a coger del vector `RULETA`. Como en `RULETA` hay más índices o menos según el fitness de cada individuo, hay más probabilidad de que el índice seleccionado pertenezca a individuos con más fitness.
+Una vez seleccionados los padres, obtenemos aleatoriamente dos puntos que definirán el trozo de cadena a intercambiar a la hora de generar los hijos. Lo bueno de cogerlos al azar radica en que si en un momento determinado se cruzasen los mismos padres más de una vez, al cruzar distintos trozos de cadena obtendríamos distintos hijos. El código siguiente refleja lo mostrado:
 ```cpp
-// Creacion de la tabla precomputada
-unsigned char BitsSetTable[256];
-BitsSetTable[0] = 0;
-for(int i = 0; i < 256; ++i)
-	BitsSetTable[i] = (i & 1) + BitsSetTable[i / 2];
-
-// Voy comprobando en la tabla cuantos unos tiene cada unsigned char y lo sumo al contador (Lookup Table)
-// Eficiencia: O(n)
-// Ejecuciones: 2*(n/8) = n/4
-cont = 0;
-for(itPOB2 = POB2.begin(); itPOB2 != POB2.end(); ++itPOB2)		
-	for(itGEN2 = (*itPOB2).begin(); itGEN2 != (*itPOB2).end(); ++itGEN2)
-		cont += BitsSetTable[*itGEN2];
+// Realizo crossover entre dos individuos cogidos al azar de entre la RULETA
+// Utilizo el crossover entre dos puntos tambien elegidos al azar
+// Cada hijo lo almaceno en un nuevo vector
+int cruces = tamPob >> 1;
+vector< vector<unsigned char> > HIJOS(cruces<<1);
+//printf("\nRealizo %d cruces:\n", cruces);
+for(int i = 0; i < cruces; ++i) {
+	int ind1 = rand() % tamPob;
+	int ind2 = rand() % tamPob;
+	int p1 = rand() % numCro8;
+	int p2 = rand() % numCro8;
+	int menor = (p1<p2) ? p1 : p2;
+	int mayor = (p1>p2) ? p1 : p2;
+	HIJOS[i<<1] = POB[RULETA[ind1]];
+	HIJOS[(i<<1)+1] = POB[RULETA[ind2]];
+	for(int j = menor; j <= mayor; ++j) {
+		HIJOS[i<<1][j] = POB[RULETA[ind2]][j];
+		HIJOS[(i<<1)+1][j] = POB[RULETA[ind1]][j];
+	}
+	/*printf("\nCruce %d: entre padres %d y %d con cruce entre los puntos %d y %d\n", i, RULETA[ind1], RULETA[ind2], menor, mayor);
+	printf("PADRE %d: ", RULETA[ind1]);
+	for(int k = 0; k < numCro8; ++k) {
+		printf("%d ", POB[RULETA[ind1]][k]);
+	}
+	printf("\n");
+	printf("PADRE %d: ", RULETA[ind2]);
+	for(int k = 0; k < numCro8; ++k) {
+		printf("%d ", POB[RULETA[ind2]][k]);
+	}
+	printf("\n");
+	printf("HIJO %d: ", i<<1);
+	for(int k = 0; k < numCro8; ++k) {
+		printf("%d ", HIJOS[i<<1][k]);
+	}
+	printf("\n");
+	printf("HIJO %d: ", (i<<1)+1);
+	for(int k = 0; k < numCro8; ++k) {
+		printf("%d ", HIJOS[(i<<1)+1][k]);
+	}
+	printf("\n\n");*/
+}
 ```
 Para usar este método, lo primero que tenemos que crear es una tabla inicializada con la acumulación de los unos que tiene cada unsigned char (0-255). De esta forma, cada vez que consultemos un número lo único que tenemos que hacer es buscar en la tabla cuántos unos tiene. De esta forma, por un lado ganamos tiempo al tener n/8 unsigned char respecto al primer método y también ganamos tiempo porque para cada unsigned char basta con un acceso en obtener su número de unos (en vez de ir bit a bit como en el segundo método). Todo ello tiene una eficiencia `O(n)` y con un número de ejecuciones de `2*(n/8) = n/4`.
 
