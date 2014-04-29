@@ -10,35 +10,34 @@ Esto sería:
 ```cpp
 vector< vector<unsigned char> > POB(tamPob, vector<unsigned char>(numCro8));
 ```
+
 Donde `tamPob` es el tamaño de la población y `numCro8` es el número de cromosomas por individuo entre 8 dado que un unsigned char me codifica 8 cromosomas.
 
-#####Obtención de unos mediante unsigned char por cada cromosoma:
+#####Inicialización de la población:
 ```cpp
-// Voy comprobando si esta a 1 y lo sumo al contador
-// Eficiencia: O(n)
-// Ejecuciones: 2*n
-int cont = 0;
-for(itPOB1 = POB1.begin(); itPOB1 != POB1.end(); ++itPOB1)
-	for(itGEN1 = (*itPOB1).begin(); itGEN1 != (*itPOB1).end(); ++itGEN1)
-		if(*itGEN1 == 1)
-			++cont;
+// Voy rellenando aleatoriamente con numeros entre 0 y 255 el vector de unsigned char
+for(itPOB = POB.begin(); itPOB != POB.end(); ++itPOB)
+	for(itGEN = (*itPOB).begin(); itGEN != (*itPOB).end(); ++itGEN)
+		*itGEN = rand() % 256;
 ```
-De esta forma, consultamos si el cromosoma está a 1 y lo sumamos al contador. Ello tiene eficiencia `O(n)` y en el peor de los casos `2*n` ejecuciones.
 
-#####Obtención de unos mediante operaciones a nivel de bits con el método de Brian Kernighan:
+#####Evaluación de la población inicial en función a su fitness:
+El fitness usado es el reconteo de unos en los cromosomas (COUNT ONES). Acto seguido, en una variable llamada `TORNEO` almaceno los índices que poseían los individuos en el vector `POB` y su fitness. Por último ordeno el torneo `TORNEO` en base al fitness usando `qsort`.
 ```cpp
-// Voy comprobando cada bit de cada unsigned char si está a 1 y lo sumo al contador (Brian Kernighan)
-// Eficiencia: O(n*log2(num)) -->>> OJO!! n/8 operaciones básicas + log2(num)
-// Ejecuciones: (n/8) + (n/8)*(log2(num)*3) -->>> de media n/2
-cont = 0;
-for(itPOB2 = POB2.begin(); itPOB2 != POB2.end(); ++itPOB2)
-	for(itGEN2 = (*itPOB2).begin(); itGEN2 != (*itPOB2).end(); ++itGEN2) {
-		unsigned char num = *itGEN2;
-		while (num) {
-			num &= (num-1);
-			++cont;
-		}
+// Evaluo el fitness de cada individuo y lo almaceno en TORNEO
+int cont;
+long int Tfitness = 0;
+for(int i = 0; i < tamPob; ++i) {
+	cont = 0;
+	for(int j = 0; j < numCro8; ++j) {
+		cont += BitsSetTable[POB[i][j]];
 	}
+	TORNEO[i] = make_pair(i,cont);
+	Tfitness += cont;
+}
+
+// Ordeno los individuos por fitness
+qsort(&TORNEO[0], tamPob, sizeof(pair<int,int>), compare);
 ```
 Aquí, lo que hacemos es operar a nivel de bits realizando AND lógica entre el número en cuestión y su anterior para obtener el bit menos significativo, sumándolo al contador y desplazando a la derecha todos los bits restantes. Todo ello tiene eficiencia `O(n*log2(num))` siendo `num` el valor del unsigned char y con un número de ejecuciones de `(n/8) + (n/8)*(log2(num)*3)`, que a efectos prácticos de media se reduce a `n/2` aproximadamente.
 
