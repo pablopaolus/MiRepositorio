@@ -65,7 +65,7 @@ if(generados < tamPob)
 
 #####Crossover:
 Lo que hacemos en el crossover es coger aleatoriamente dos números entre 0 y `tamPob` que serán los índices a coger del vector `RULETA`. Como en `RULETA` hay más índices o menos según el fitness de cada individuo, hay más probabilidad de que el índice seleccionado pertenezca a individuos con más fitness.
-Una vez seleccionados los padres, obtenemos aleatoriamente dos puntos que definirán el trozo de cadena a intercambiar a la hora de generar los hijos. Lo bueno de cogerlos al azar radica en que si en un momento determinado se cruzasen los mismos padres más de una vez, al cruzar distintos trozos de cadena obtendríamos distintos hijos. El código siguiente refleja lo mostrado:
+Una vez seleccionados los padres, obtenemos aleatoriamente dos puntos que definirán el trozo de cadena a intercambiar a la hora de generar los hijos. Lo bueno de cogerlos al azar radica en que si en un momento determinado se cruzasen los mismos padres más de una vez, al cruzar distintos trozos de cadena obtendríamos distintos hijos. Los hijos se almacenan en un nuevo vector llamado `HIJOS` y que contendrá a la nueva población. El código siguiente refleja lo mostrado:
 ```cpp
 // Realizo crossover entre dos individuos cogidos al azar de entre la RULETA
 // Utilizo el crossover entre dos puntos tambien elegidos al azar
@@ -109,13 +109,33 @@ for(int i = 0; i < cruces; ++i) {
 	printf("\n\n");*/
 }
 ```
-Para usar este método, lo primero que tenemos que crear es una tabla inicializada con la acumulación de los unos que tiene cada unsigned char (0-255). De esta forma, cada vez que consultemos un número lo único que tenemos que hacer es buscar en la tabla cuántos unos tiene. De esta forma, por un lado ganamos tiempo al tener n/8 unsigned char respecto al primer método y también ganamos tiempo porque para cada unsigned char basta con un acceso en obtener su número de unos (en vez de ir bit a bit como en el segundo método). Todo ello tiene una eficiencia `O(n)` y con un número de ejecuciones de `2*(n/8) = n/4`.
+
+#####Mutación:
+Aplicamos una mutación de 1 o varios bits en un individuo de forma aleatoria:
+
+```cpp
+// Realizo mutacion en cada hijo de 1 o varios bits
+for(itPOB = HIJOS.begin(); itPOB != HIJOS.end(); ++itPOB) {
+	int cromosoma = rand() % numCro8;
+	(*itPOB)[cromosoma] = rand() % 256;
+}
+```
+
+#####Completar la población:
+Si el tamaño de población fuese impar, el número de cruces sería la parte entera de la mitad. Como cada cruce crea dos hijos, nos faltaría un hijo para llegar a completar `tamPob` individuos. En este caso, el individuo que falta será el padre con más fitness de la generación "perdida" (que acaba de ser sustituída). El código siguiente lo manifiesta:
+
+```cpp
+// Si la poblacion es impar el numero de hijos generados es uno menos: Agregamos entonces al padre con mas fitness
+// Ya tenemos la nueva población generada
+if(tamPob % 2 == 1)
+	HIJOS.push_back(POB[TORNEO[0].first]);
+```
 
 Ejecución del programa
 ----------------------
 
   ```bash
-  ./ev_fitness <Tamaño de la población> <Número de cromosomas>
+  ./ag <Tamaño de la población> <Número de cromosomas>
   ```
 
 De esta forma, dando distintos valores al número de cromosomas tenemos los siguientes tiempos de ejecución (se han cogido las mejores mediciones. En mi fichero [ev_fitness_tiempos.txt] (https://github.com/rotty11/MiRepositorio/blob/master/ev_fitness_tiempos.txt) teneis todas las medidas de ejecución):
