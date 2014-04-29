@@ -1,11 +1,9 @@
-Documentación de ev_fitness.cpp
-===============================
+Documentación de ag.cpp
+=======================
 
-Lo podeis encontrar en [ev_fitness.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/ev_fitness.cpp). Lo que se ha hecho es desechar la estructura de booleanos del primer ejercicio y sustituirlo por una variante en la estructura de unsigned char a la hora de acceder a los cromosomas para el reconteo de unos:
+Lo podeis encontrar en [ag.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/ag.cpp). Aquí lo que se ha hecho es ejecutar un algoritmo genético completo (Pasos básicos) para la creación de una nueva población de individuos en base a los ya existentes. Como estructura de datos, se ha usado la mejor hasta ahora:
 
-  - Usando un unsigned char por cada cromosoma
-  - Usando un unsigned char por cada 8 cromosomas (Obteniendo los unos sumando bit a bit)
-  - Usando un unsigned char por cada 8 cromosomas (Obteniendo los unos consultando la lookup table)
+  - Usando un unsigned char por cada 8 cromosomas usando el método de la lookup table)
 
 #####Obtención de unos mediante unsigned char por cada cromosoma:
 ```cpp
