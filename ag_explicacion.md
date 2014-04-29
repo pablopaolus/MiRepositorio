@@ -23,6 +23,7 @@ for(itPOB = POB.begin(); itPOB != POB.end(); ++itPOB)
 
 #####Evaluación de la población inicial en función a su fitness:
 El fitness usado es el reconteo de unos en los cromosomas (COUNT ONES). Acto seguido, en una variable llamada `TORNEO` almaceno los índices que poseían los individuos en el vector `POB` y su fitness. Por último ordeno el torneo `TORNEO` en base al fitness usando `qsort`.
+
 ```cpp
 // Evaluo el fitness de cada individuo y lo almaceno en TORNEO
 int cont;
@@ -39,7 +40,28 @@ for(int i = 0; i < tamPob; ++i) {
 // Ordeno los individuos por fitness
 qsort(&TORNEO[0], tamPob, sizeof(pair<int,int>), compare);
 ```
-Aquí, lo que hacemos es operar a nivel de bits realizando AND lógica entre el número en cuestión y su anterior para obtener el bit menos significativo, sumándolo al contador y desplazando a la derecha todos los bits restantes. Todo ello tiene eficiencia `O(n*log2(num))` siendo `num` el valor del unsigned char y con un número de ejecuciones de `(n/8) + (n/8)*(log2(num)*3)`, que a efectos prácticos de media se reduce a `n/2` aproximadamente.
+
+#####Selección:
+Como tenemos ordenada la población en base al fitness, procedemos a crear la ruleta. Para ello, lo que hacemos es crear otro vector de tamaño igual a la población `tamPob` llamado `RULETA` y crear copias de los individuos proporcionalmente a su fitness. Pero para no tener que copiar tantos datos, el vector sólo contendrá los índices. Si el número de copias no llega a `tamPob` copias, se rellena lo que falte con una copia extra de cada individuo empezando por el que más fitness tenía. Para mostrar todo esto, se ha dejado un fichero llamado `ag_log.txt` donde se puede ver la traza de todo el algoritmo para que veais cómo funciona. A continuación se muestra el código de todo lo explicado anteriormente.
+
+```cpp
+// Ruleta donde almaceno los índices de los participantes en proporción a su fitness
+vector< int > RULETA(tamPob);
+int generados = 0;
+for(int i = 0; i < tamPob && generados < tamPob; ++i) {
+	int copias = ((double) TORNEO[i].second / (double) Tfitness) * (double) tamPob;
+	if(copias + generados > tamPob)
+		copias = tamPob - generados;
+	//printf("Copias de %d: %d\n", TORNEO[i].first, copias);
+	for(int j = generados; j < copias + generados; ++j)
+		RULETA[j] = TORNEO[i].first;
+	generados += copias;
+}
+
+if(generados < tamPob)
+	for(int i = generados, aux = 0; i < tamPob; ++i, ++aux)
+		RULETA[i] = TORNEO[aux].first;
+```
 
 #####Obtención de unos mediante el método de la Lookup Table:
 ```cpp
