@@ -65,7 +65,7 @@ if(generados < tamPob)
 
 #####Crossover:
 Lo que hacemos en el crossover es coger aleatoriamente dos números entre 0 y `tamPob` que serán los índices a coger del vector `RULETA`. Como en `RULETA` hay más índices o menos según el fitness de cada individuo, hay más probabilidad de que el índice seleccionado pertenezca a individuos con más fitness.
-Una vez seleccionados los padres, obtenemos aleatoriamente dos puntos que definirán el trozo de cadena a intercambiar a la hora de generar los hijos. Lo bueno de cogerlos al azar radica en que si en un momento determinado se cruzasen los mismos padres más de una vez, al cruzar distintos trozos de cadena obtendríamos distintos hijos. Los hijos se almacenan en un nuevo vector llamado `HIJOS` y que contendrá a la nueva población. El código siguiente refleja lo mostrado:
+Una vez seleccionados los padres, obtenemos aleatoriamente dos puntos que definirán el trozo de cadena a intercambiar a la hora de generar los hijos. Lo bueno de cogerlos al azar radica en que si en un momento determinado se cruzasen los mismos padres más de una vez, al cruzar distintos trozos de cadena obtendríamos distintos hijos. Los hijos se almacenan en un nuevo vector llamado `HIJOS` conteniendo a la nueva población. El código siguiente refleja lo mostrado:
 ```cpp
 // Realizo crossover entre dos individuos cogidos al azar de entre la RULETA
 // Utilizo el crossover entre dos puntos tambien elegidos al azar
@@ -138,7 +138,7 @@ Ejecución del programa
   ./ag <Tamaño de la población> <Número de cromosomas>
   ```
 
-De esta forma, dando distintos valores al número de cromosomas tenemos los siguientes tiempos de ejecución (se han cogido las mejores mediciones. En mi fichero [ev_fitness_tiempos.txt] (https://github.com/rotty11/MiRepositorio/blob/master/ev_fitness_tiempos.txt) teneis todas las medidas de ejecución):
+De esta forma, dando distintos valores al número de cromosomas tenemos los siguientes tiempos de ejecución (se han cogido las mejores mediciones. En mi fichero [ag_tiempos.txt] (https://github.com/rotty11/MiRepositorio/blob/master/ag_tiempos.txt) teneis todas las medidas de ejecución):
 
  Tam. población | Núm. cromosomas | Unsigned char | Unsigned char (Brian Kernighan) | Unsigned char (Lookup Table)
 ----------------|-----------------|---------------|---------------------------------|-----------------------------
