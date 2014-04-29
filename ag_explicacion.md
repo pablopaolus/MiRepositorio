@@ -140,10 +140,12 @@ Ejecución del programa
 
 De esta forma, dando distintos valores al número de cromosomas tenemos los siguientes tiempos de ejecución (se han cogido las mejores mediciones. En mi fichero [ag_tiempos.txt] (https://github.com/rotty11/MiRepositorio/blob/master/ag_tiempos.txt) teneis todas las medidas de ejecución):
 
- Tam. población | Núm. cromosomas | Unsigned char | Unsigned char (Brian Kernighan) | Unsigned char (Lookup Table)
-----------------|-----------------|---------------|---------------------------------|-----------------------------
-       100      |        128      |  0.000873 s   |            0.000181 s           |          0.000094 s
-       100      |        256      |  0.001734 s   |            0.000354 s           |          0.000174 s
-       100      |       1024      |  0.002298 s   |            0.000459 s           |          0.000219 s
+ Tam. población | Núm. cromosomas | Tiempo de ejecución
+----------------|-----------------|--------------------
+       100      |        128      |     0.000133 s
+       100      |        256      |     0.000199 s
+       100      |       1024      |     0.000658 s
+       100      |      65536      |     0.028470 s
+       100      |    1048576      |     0.446043 s
 
 Observamos en la tabla que aproximadamente se respetan los tiempos de ejecución con las fórmulas mencionadas anteriormente. El método de Brian Kernighan reduce unas 4,7 veces el tiempo anterior si tenemos en cuenta que sólo rellena la octava parte de cromosomas pero usa más tiempo al tener que operar a nivel de bits varias veces por cada unsigned char. En última instancia, en el método de la Lookup Table, hay que mencionar que para tamaños pequeños de población o número de cromosomas el tiempo empeoraría debido a que hay que crear previamente la tabla y no compensa, pero en estos casos es lo suficientemente grande como para poder sacar ventaja. Como conclusión, el último método es el mejor en estos casos y lo validamos como el más eficiente.
