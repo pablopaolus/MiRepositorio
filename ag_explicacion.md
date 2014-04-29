@@ -22,7 +22,7 @@ for(itPOB = POB.begin(); itPOB != POB.end(); ++itPOB)
 ```
 
 #####Evaluación de la población inicial en función a su fitness:
-El fitness usado es el reconteo de unos en los cromosomas (COUNT ONES). Acto seguido, en una variable llamada `TORNEO` almaceno los índices que poseían los individuos en el vector `POB` y su fitness. Por último ordeno el torneo `TORNEO` en base al fitness usando `qsort`.
+El fitness usado es el reconteo de unos en los cromosomas (COUNT ONES) utilizando la técnica de la Lookup Table. Acto seguido, en una variable llamada `TORNEO` almaceno los índices que poseían los individuos en el vector `POB` y su fitness. Por último ordeno el torneo `TORNEO` en base al fitness usando `qsort`.
 
 ```cpp
 // Evaluo el fitness de cada individuo y lo almaceno en TORNEO
@@ -42,7 +42,7 @@ qsort(&TORNEO[0], tamPob, sizeof(pair<int,int>), compare);
 ```
 
 #####Selección:
-Como tenemos ordenada la población en base al fitness, procedemos a crear la ruleta. Para ello, lo que hacemos es crear otro vector de tamaño igual a la población `tamPob` llamado `RULETA` y crear copias de los individuos proporcionalmente a su fitness. Pero para no tener que copiar tantos datos, el vector sólo contendrá los índices. Si el número de copias no llega a `tamPob`, se rellena lo que falte con una copia extra de cada individuo empezando por el que más fitness tenía. Para mostrar todo esto, se ha dejado un fichero llamado [ag_log.txt] (https://github.com/rotty11/MiRepositorio/blob/master/ag.cpp) donde se puede ver la traza de todo el algoritmo para que veais cómo funciona. A continuación se muestra el código de todo lo explicado anteriormente.
+Como tenemos ordenada la población en base al fitness, procedemos a crear la ruleta. Para ello, lo que hacemos es crear otro vector de tamaño igual a la población `tamPob` llamado `RULETA` y crear copias de los individuos proporcionalmente a su fitness. Pero para no tener que copiar tantos datos, el vector sólo contendrá los índices. Si el número de copias no llega a `tamPob`, se rellena lo que falte con una copia extra de cada individuo empezando por el que más fitness tenía. Para mostrar todo esto, se ha dejado un fichero llamado [ag_log.txt] (https://github.com/rotty11/MiRepositorio/blob/master/ag_log.txt) donde se puede ver la traza de todo el algoritmo para que veais cómo funciona. A continuación se muestra el código de todo lo explicado anteriormente.
 
 ```cpp
 // Ruleta donde almaceno los índices de los participantes en proporción a su fitness
