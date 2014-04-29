@@ -1,9 +1,16 @@
 Documentación de ag.cpp
 =======================
 
-Lo podeis encontrar en [ag.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/ag.cpp). Aquí lo que se ha hecho es ejecutar un algoritmo genético completo (Pasos básicos) para la creación de una nueva población de individuos en base a los ya existentes. Como estructura de datos, se ha usado la mejor hasta ahora:
+Lo podeis encontrar en [ag.cpp] (https://github.com/rotty11/MiRepositorio/blob/master/ag.cpp). Aquí lo que se ha hecho es ejecutar un algoritmo genético completo (pasos básicos) para la creación de una nueva población de individuos en base a los ya existentes. Como estructura de datos, se ha usado la mejor hasta ahora:
 
-  - Usando un unsigned char por cada 8 cromosomas usando el método de la lookup table)
+  - Usando un unsigned char por cada 8 cromosomas
+
+Esto sería:
+
+```cpp
+vector< vector<unsigned char> > POB(tamPob, vector<unsigned char>(numCro8));
+```
+  Donde `tamPob` es el tamaño de la población y `numCro8` es el número de cromosomas por individuo entre 8.
 
 #####Obtención de unos mediante unsigned char por cada cromosoma:
 ```cpp
