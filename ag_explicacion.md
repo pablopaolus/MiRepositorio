@@ -10,7 +10,7 @@ Esto sería:
 ```cpp
 vector< vector<unsigned char> > POB(tamPob, vector<unsigned char>(numCro8));
 ```
-  Donde `tamPob` es el tamaño de la población y `numCro8` es el número de cromosomas por individuo entre 8.
+Donde `tamPob` es el tamaño de la población y `numCro8` es el número de cromosomas por individuo entre 8 dado que un unsigned char me codifica 8 cromosomas.
 
 #####Obtención de unos mediante unsigned char por cada cromosoma:
 ```cpp
